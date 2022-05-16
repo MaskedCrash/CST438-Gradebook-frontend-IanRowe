@@ -6,6 +6,7 @@ import {DataGrid} from '@mui/x-data-grid';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
 import {SERVER_URL} from '../constants.js';
+import { Link } from "react-router-dom"; 
 
 // NOTE:  for OAuth security, http request must have
 //   credentials: 'include' 
@@ -89,7 +90,9 @@ class Gradebook extends React.Component {
           });
           console.error(err);
         });
-   };        
+   };     
+	
+	
     
     // when user has entered a new grade, update the state
     //  id    - index of row of grade change
@@ -145,6 +148,7 @@ class Gradebook extends React.Component {
                 <Button variant="outlined" color="primary" style={{margin: 10}} onClick={this.handleSubmit} >
                    Submit
                 </Button>
+				
               </div>
               <ToastContainer autoClose={1500} />   
             </div>

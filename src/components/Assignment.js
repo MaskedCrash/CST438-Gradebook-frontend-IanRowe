@@ -8,6 +8,7 @@ import Radio from '@mui/material/Radio';
 import {DataGrid} from '@mui/x-data-grid';
 import {SERVER_URL} from '../constants.js'
 
+
 // NOTE:  for OAuth security, http request must have
 //   credentials: 'include' 
 //
@@ -83,6 +84,7 @@ class Assignment extends React.Component {
                     variant="outlined" color="primary" disabled={this.state.assignments.length===0}  style={{margin: 10}}>
               Grade
             </Button>
+			<Link to="/assignment" className="btn btn-primary">Add An Assignment</Link>
             <ToastContainer autoClose={1500} /> 
           </div>
       )
