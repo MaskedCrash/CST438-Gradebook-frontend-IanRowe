@@ -45,7 +45,7 @@ class Add_Assignment extends React.Component {
 		var courseId = this.state.courseId;
         var name = this.state.name;
         var date = this.state.date
-		fetch(`${SERVER_URL}assignment?assignmentName=` + name + `&dueDate=` + date + `&courseID=` + courseId,
+		fetch(`${SERVER_URL}/assignment?assignmentName=` + name + `&dueDate=` + date + `&courseID=` + courseId,
         {
           method: 'POST',
           headers: { 'X-XSRF-TOKEN': token }
@@ -68,6 +68,7 @@ class Add_Assignment extends React.Component {
 				});
 				console.error(err);
 			})
+	
 		}
 		
 		
@@ -75,19 +76,19 @@ class Add_Assignment extends React.Component {
   
    
   render() {
-        
+		
          return (
              <div>
             <div className="App">
              <h4>Please Fill out the following form to submit a new Assignment </h4>
              
-             <form onSubmit={this.mySubmitHandler}>
+             <form onSubmit={this.assignmentButtonPushed}>
                 <p>Enter the Assignment Name</p>
-                <input name='assignmentName' onChange={this.assignmentChangeHandler} />
+                <input name='assignmentName' onChange={this.handleNameChange} />
                 <p>Enter the due Date</p>
-                <input type="date" name='dueDate' onChange={this.dueDateChangeHandler}  />
+                <input type="date" name='dueDate' onChange={this.handleDateChange}  />
                 <p>Enter the Course ID</p>
-                <input variant="outlined" type="number" name='courseName' onChange={this.courseNameChangeHandler}/>
+                <input variant="outlined" type="number" name='courseId' onChange={this.handleIdChange}/>
                 <input type="submit" name="submit"/>
             </form>
              
