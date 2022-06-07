@@ -33,8 +33,9 @@ class Gradebook extends React.Component {
       const token = Cookies.get('XSRF-TOKEN');
       fetch(`${SERVER_URL}/gradebook/${this.props.location.assignment.assignmentId}`, 
         {  
-          method: 'GET', 
-          headers: { 'X-XSRF-TOKEN': token }
+			method: 'GET', 
+			headers: { 'X-XSRF-TOKEN': token },
+			credentials: 'include'
         } )
       .then((response) => response.json()) 
       .then((responseData) => { 

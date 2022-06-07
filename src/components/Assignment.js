@@ -28,8 +28,9 @@ class Assignment extends React.Component {
     const token = Cookies.get('XSRF-TOKEN');
     fetch(`${SERVER_URL}/gradebook`, 
       {  
-        method: 'GET', 
-        headers: { 'X-XSRF-TOKEN': token }
+			method: 'GET', 
+			headers: { 'X-XSRF-TOKEN': token },
+			credentials: 'include'
       } )
     .then((response) => response.json()) 
     .then((responseData) => { 
